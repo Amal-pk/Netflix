@@ -18,12 +18,13 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: bgcolor,
         primarySwatch: Colors.grey,
         textTheme: const TextTheme(
-            bodyText1: TextStyle(
-              color: Colors.white,
-            ),
-            bodyText2: TextStyle(
-              color: Colors.white,
-            )),
+          bodyText1: TextStyle(
+            color: Colors.white,
+          ),
+          bodyText2: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       home: ScreenMainPage(),
     );
