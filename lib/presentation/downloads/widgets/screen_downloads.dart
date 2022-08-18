@@ -40,6 +40,7 @@ class ScreenDownload extends StatelessWidget {
 
 class Section2 extends StatelessWidget {
   Section2({Key? key}) : super(key: key);
+
   final List imageList = [
     "asset/image/pH.jpeg",
     "asset/image/minions.jpeg",
