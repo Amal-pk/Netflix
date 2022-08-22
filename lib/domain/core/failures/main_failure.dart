@@ -1,11 +1,8 @@
-import 'dart:html';
-
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'main_failures.freezed.dart';
+part 'main_failure.freezed.dart';
 
 @freezed
 class MainFailure with _$MainFailure {
-  const factory MainFailure.clientFilure() = _clientFilure;
+  const factory MainFailure.clientFailure() = _clientFailure;
   const factory MainFailure.serverFailure() = _serverFailure;
 }

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 
 class VideoWidget extends StatelessWidget {
+  final String url;
   const VideoWidget({
     Key? key,
+    required this.url,
   }) : super(key: key);
 
   @override
@@ -15,12 +17,10 @@ class VideoWidget extends StatelessWidget {
         Container(
           width: width,
           height: height / 3,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage(
-                'asset/image/download.jpg',
-              ),
+              image: NetworkImage(url),
             ),
           ),
         ),

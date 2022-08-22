@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/width.dart';
 import 'package:netflix/presentation/home/widgets/custom_button_widget.dart';
 
 class BackgroundCard extends StatelessWidget {
@@ -17,9 +16,9 @@ class BackgroundCard extends StatelessWidget {
           height: height / 1.8,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage(mainImage),
-            ),
+                fit: BoxFit.cover,
+                image:
+                    AssetImage('asset/image/Stranger_Things_(season_III).jpg')),
           ),
         ),
         Positioned(

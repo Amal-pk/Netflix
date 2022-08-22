@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/width.dart';
+import 'package:netflix/core/constatnt.dart';
 import 'package:netflix/presentation/home/widgets/custom_button_widget.dart';
 import 'package:netflix/presentation/widgets/video_widget.dart';
 
 class EveryOnesWatchingWidget extends StatelessWidget {
+  final String posterPath;
+  final String movieName;
+  final String description;
   const EveryOnesWatchingWidget({
     Key? key,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -15,7 +21,9 @@ class EveryOnesWatchingWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         heightTN,
-        const VideoWidget(),
+        VideoWidget(
+          url: posterPath,
+        ),
         heightTWN,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -44,21 +52,15 @@ class EveryOnesWatchingWidget extends StatelessWidget {
           ],
         ),
         heightTWN,
-        const Text(
-          "Lost in Space",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        Text(movieName,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         heightTN,
-        const Text(
-          "After crash-landing on an alien planet, the Robinson family fights against all odds to survive and escape. But they're surrounded by hidden dangers.",
-          style: TextStyle(
-            fontSize: 16,
-            color: greyclr,
-          ),
-        )
+        Text(
+          description,
+          style: TextStyle(fontSize: 13),
+          maxLines: 4,
+          overflow: TextOverflow.ellipsis,
+        ),
       ],
     );
   }

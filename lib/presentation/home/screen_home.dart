@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/application/home/home_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/width.dart';
+import 'package:netflix/core/constatnt.dart';
 import 'package:netflix/presentation/home/widgets/background_card.dart';
 import 'package:netflix/presentation/home/widgets/number_card.dart';
+import 'package:netflix/presentation/home/widgets/number_title_card.dart';
+import 'package:netflix/presentation/widgets/main_card_and_title.dart';
 import 'package:netflix/presentation/widgets/main_title.dart';
-import 'package:netflix/presentation/widgets/main_title_card.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
@@ -16,6 +19,9 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<HomeBloc>(context).add(GetHomeScreenData());
+    });
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: scrollNotifier,
@@ -33,35 +39,83 @@ class ScreenHome extends StatelessWidget {
             },
             child: Stack(
               children: [
-                ListView(
-                  children: [
-                    const BackgroundCard(),
-                    const MainTitleCard(title: "Released in the past year"),
-                    const MainTitleCard(title: "Trending Now"),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    if (state.isLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                        ),
+                      );
+                    } else if (state.hasError) {
+                      return const Center(
+                          child: Text(
+                        'Error While getting data',
+                        style: TextStyle(color: Colors.white),
+                      ));
+                    }
+
+                    //released past year
+                    final _releasedPastYear = state.pastYearMovieList.map((m) {
+                      return '$imageAppendUrl${m.backdropPath}';
+                    }).toList();
+
+                    // trending
+                    final _trending = state.trendingMovieList.map((m) {
+                      return '$imageAppendUrl${m.backdropPath}';
+                    }).toList();
+                    _trending.shuffle();
+                    //tense dreams
+                    final _tenseDreams = state.tensDramaMovieList.map((m) {
+                      return '$imageAppendUrl${m.backdropPath}';
+                    }).toList();
+                    _tenseDreams.shuffle();
+                    //southindian Movies
+
+                    final _southIndianMovies =
+                        state.southIndianMovieList.map((m) {
+                      return '$imageAppendUrl${m.backdropPath}';
+                    }).toList();
+                    _southIndianMovies.shuffle();
+
+                    final _topTenMovies = state.trendingMovieList.map((t) {
+                      return '$imageAppendUrl${t.backdropPath}';
+                    }).toList();
+                    _topTenMovies.shuffle();
+
+                    return ListView(
                       children: [
-                        heightTN,
-                        const MainTitle(
-                          title: "Top 10 Tv Shows In India Today",
+                        const BackgroundCard(),
+                        MainCardAndTitle(
+                          title: 'Released in the past year',
+                          posterList: _releasedPastYear.sublist(0, 10),
+                        ),
+                        MainCardAndTitle(
+                          title: 'Trending Now',
+                          posterList: _trending.sublist(0, 10),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            heightTN,
+                            NumberTitleCard(
+                              posterList: _topTenMovies.sublist(0, 10),
+                            ),
+                            heightTN
+                          ],
+                        ),
+                        MainCardAndTitle(
+                          title: 'Tense Dreams',
+                          posterList: _tenseDreams.sublist(0, 10),
                         ),
                         heightTN,
-                        LimitedBox(
-                          maxHeight: height / 4,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            children: List.generate(
-                              10,
-                              (index) => NumberCard(index: index),
-                            ),
-                          ),
+                        MainCardAndTitle(
+                          title: 'South Indian Cinema',
+                          posterList: _southIndianMovies.sublist(0, 10),
                         )
                       ],
-                    ),
-                    const MainTitleCard(title: "Tense Drames"),
-                    const MainTitleCard(title: "South Indian Cinema")
-                  ],
+                    );
+                  },
                 ),
                 scrollNotifier.value == true
                     ? AnimatedContainer(
@@ -98,15 +152,15 @@ class ScreenHome extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text('TV Shows', style: homeStyle),
-                                Text("Movies", style: homeStyle),
-                                Text("Categories", style: homeStyle)
+                                Text('TV Shows', style: kHomeTitlText),
+                                Text("Movies", style: kHomeTitlText),
+                                Text("Categories", style: kHomeTitlText)
                               ],
                             )
                           ],
                         ),
                       )
-                    : heightTN,
+                    : heightTN
               ],
             ),
           );

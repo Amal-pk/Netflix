@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
-import 'package:netflix/core/width.dart';
+import 'package:netflix/core/constatnt.dart';
 import 'package:netflix/presentation/home/widgets/custom_button_widget.dart';
 import 'package:netflix/presentation/widgets/video_widget.dart';
 
 class ComingSoonWidget extends StatelessWidget {
+  final String id;
+  final String month;
+  final String day;
+  final String posterPath;
+  final String movieName;
+  final String description;
   const ComingSoonWidget({
     Key? key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -44,15 +56,19 @@ class ComingSoonWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const VideoWidget(),
+              VideoWidget(
+                url: posterPath,
+              ),
               Row(
                 children: [
-                  const Text(
-                    "Mortal Kombat",
+                  Text(
+                    movieName,
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 25,
+                      letterSpacing: 0,
                       fontWeight: FontWeight.bold,
                     ),
+                    overflow: TextOverflow.visible,
                   ),
                   Spacer(),
                   Row(
@@ -83,21 +99,14 @@ class ComingSoonWidget extends StatelessWidget {
                 ),
               ),
               heightTN,
-              const Text(
-                "Mortal Kombat",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text(movieName,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
               heightTN,
-              const Text(
-                "On the brink of being conquered by Outworld, Earthrealm fighters driven by an ancient prophecy must win the final tournament to save humanity.",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: greyclr,
-                ),
-              )
+              Text(
+                style: TextStyle(fontSize: 13),
+                description,
+                maxLines: 4,
+              ),
             ],
           ),
         ),

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'main_failures.dart';
+part of 'main_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -18,38 +18,38 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MainFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() clientFilure,
+    required TResult Function() clientFailure,
     required TResult Function() serverFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFilure,
+    TResult Function()? clientFailure,
     TResult Function()? serverFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? clientFilure,
+    TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_clientFilure value) clientFilure,
+    required TResult Function(_clientFailure value) clientFailure,
     required TResult Function(_serverFailure value) serverFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_clientFilure value)? clientFilure,
+    TResult Function(_clientFailure value)? clientFailure,
     TResult Function(_serverFailure value)? serverFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_clientFilure value)? clientFilure,
+    TResult Function(_clientFailure value)? clientFailure,
     TResult Function(_serverFailure value)? serverFailure,
     required TResult orElse(),
   }) =>
@@ -73,44 +73,38 @@ class _$MainFailureCopyWithImpl<$Res> implements $MainFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_clientFilureCopyWith<$Res> {
-  factory _$$_clientFilureCopyWith(
-          _$_clientFilure value, $Res Function(_$_clientFilure) then) =
-      __$$_clientFilureCopyWithImpl<$Res>;
+abstract class _$$_clientFailureCopyWith<$Res> {
+  factory _$$_clientFailureCopyWith(
+          _$_clientFailure value, $Res Function(_$_clientFailure) then) =
+      __$$_clientFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_clientFilureCopyWithImpl<$Res>
+class __$$_clientFailureCopyWithImpl<$Res>
     extends _$MainFailureCopyWithImpl<$Res>
-    implements _$$_clientFilureCopyWith<$Res> {
-  __$$_clientFilureCopyWithImpl(
-      _$_clientFilure _value, $Res Function(_$_clientFilure) _then)
-      : super(_value, (v) => _then(v as _$_clientFilure));
+    implements _$$_clientFailureCopyWith<$Res> {
+  __$$_clientFailureCopyWithImpl(
+      _$_clientFailure _value, $Res Function(_$_clientFailure) _then)
+      : super(_value, (v) => _then(v as _$_clientFailure));
 
   @override
-  _$_clientFilure get _value => super._value as _$_clientFilure;
+  _$_clientFailure get _value => super._value as _$_clientFailure;
 }
 
 /// @nodoc
 
-class _$_clientFilure with DiagnosticableTreeMixin implements _clientFilure {
-  const _$_clientFilure();
+class _$_clientFailure implements _clientFailure {
+  const _$_clientFailure();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MainFailure.clientFilure()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'MainFailure.clientFilure'));
+  String toString() {
+    return 'MainFailure.clientFailure()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_clientFilure);
+        (other.runtimeType == runtimeType && other is _$_clientFailure);
   }
 
   @override
@@ -119,30 +113,30 @@ class _$_clientFilure with DiagnosticableTreeMixin implements _clientFilure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() clientFilure,
+    required TResult Function() clientFailure,
     required TResult Function() serverFailure,
   }) {
-    return clientFilure();
+    return clientFailure();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFilure,
+    TResult Function()? clientFailure,
     TResult Function()? serverFailure,
   }) {
-    return clientFilure?.call();
+    return clientFailure?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? clientFilure,
+    TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     required TResult orElse(),
   }) {
-    if (clientFilure != null) {
-      return clientFilure();
+    if (clientFailure != null) {
+      return clientFailure();
     }
     return orElse();
   }
@@ -150,37 +144,37 @@ class _$_clientFilure with DiagnosticableTreeMixin implements _clientFilure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_clientFilure value) clientFilure,
+    required TResult Function(_clientFailure value) clientFailure,
     required TResult Function(_serverFailure value) serverFailure,
   }) {
-    return clientFilure(this);
+    return clientFailure(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_clientFilure value)? clientFilure,
+    TResult Function(_clientFailure value)? clientFailure,
     TResult Function(_serverFailure value)? serverFailure,
   }) {
-    return clientFilure?.call(this);
+    return clientFailure?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_clientFilure value)? clientFilure,
+    TResult Function(_clientFailure value)? clientFailure,
     TResult Function(_serverFailure value)? serverFailure,
     required TResult orElse(),
   }) {
-    if (clientFilure != null) {
-      return clientFilure(this);
+    if (clientFailure != null) {
+      return clientFailure(this);
     }
     return orElse();
   }
 }
 
-abstract class _clientFilure implements MainFailure {
-  const factory _clientFilure() = _$_clientFilure;
+abstract class _clientFailure implements MainFailure {
+  const factory _clientFailure() = _$_clientFailure;
 }
 
 /// @nodoc
@@ -204,18 +198,12 @@ class __$$_serverFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_serverFailure with DiagnosticableTreeMixin implements _serverFailure {
+class _$_serverFailure implements _serverFailure {
   const _$_serverFailure();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'MainFailure.serverFailure()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'MainFailure.serverFailure'));
   }
 
   @override
@@ -230,7 +218,7 @@ class _$_serverFailure with DiagnosticableTreeMixin implements _serverFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() clientFilure,
+    required TResult Function() clientFailure,
     required TResult Function() serverFailure,
   }) {
     return serverFailure();
@@ -239,7 +227,7 @@ class _$_serverFailure with DiagnosticableTreeMixin implements _serverFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFilure,
+    TResult Function()? clientFailure,
     TResult Function()? serverFailure,
   }) {
     return serverFailure?.call();
@@ -248,7 +236,7 @@ class _$_serverFailure with DiagnosticableTreeMixin implements _serverFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? clientFilure,
+    TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     required TResult orElse(),
   }) {
@@ -261,7 +249,7 @@ class _$_serverFailure with DiagnosticableTreeMixin implements _serverFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_clientFilure value) clientFilure,
+    required TResult Function(_clientFailure value) clientFailure,
     required TResult Function(_serverFailure value) serverFailure,
   }) {
     return serverFailure(this);
@@ -270,7 +258,7 @@ class _$_serverFailure with DiagnosticableTreeMixin implements _serverFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_clientFilure value)? clientFilure,
+    TResult Function(_clientFailure value)? clientFailure,
     TResult Function(_serverFailure value)? serverFailure,
   }) {
     return serverFailure?.call(this);
@@ -279,7 +267,7 @@ class _$_serverFailure with DiagnosticableTreeMixin implements _serverFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_clientFilure value)? clientFilure,
+    TResult Function(_clientFailure value)? clientFailure,
     TResult Function(_serverFailure value)? serverFailure,
     required TResult orElse(),
   }) {
